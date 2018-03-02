@@ -1,0 +1,6 @@
+data <- read.table("./elements.dat", header = T, sep = "\t")
+max_y = max(data)
+values <- paste(data[1, ], "%", sep = "")
+barplot(t(data), main="Composition of Air", las = 1, beside = T, col = heat.colors(length(data)), ylab = "Procenat", names.arg = values, axes = F)
+axis(2, las = 1, at = seq(0, max_y, 6))
+legend("topright", names(data), fill = heat.colors(length(data)))
